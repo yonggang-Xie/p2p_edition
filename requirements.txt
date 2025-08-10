@@ -1,13 +1,29 @@
-diffusers>=0.21.0
-transformers>=4.21.0
-torch>=1.12.0
-torchvision>=0.13.0
-ftfy
-opencv-python
-ipywidgets
-sentence-transformers>=2.2.0
-numpy>=1.21.0
+# Core PyTorch stack (CUDA 12.4 build)
+torch==2.4.1+cu124 --index-url https://download.pytorch.org/whl/cu124
+torchvision==0.19.1+cu124 --index-url https://download.pytorch.org/whl/cu124
+torchaudio==2.4.1+cu124 --index-url https://download.pytorch.org/whl/cu124
+
+# Hugging Face ecosystem
+transformers>=4.42.0
+diffusers>=0.27.0
+accelerate
+safetensors
+
+# Optional memory/speed optimization
+# Comment out if it causes issues on Windows
+xformers==0.0.28.post3
+
+# Image and array processing
+opencv-python-headless
 Pillow>=8.3.0
-tqdm
+numpy>=1.21.0
 scipy>=1.7.0
 matplotlib>=3.5.0
+tqdm
+ftfy
+
+# Sentence embeddings (if used)
+sentence-transformers>=2.2.0
+
+# Widgets for notebooks (if needed)
+ipywidgets
