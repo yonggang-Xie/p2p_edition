@@ -15,7 +15,7 @@ class DDIMInversion:
     Implements 50-step DDIM inversion as specified in the project requirements.
     """
     
-    def __init__(self, model, num_inference_steps: int = 50):
+    def __init__(self, model, num_inference_steps: int = 25):
         """
         Initialize DDIM Inversion.
         
@@ -89,7 +89,9 @@ class DDIMInversion:
             
         # Convert to tensor and normalize
         image = torch.from_numpy(image).float() / 127.5 - 1
-        image = image.permute(2, 0, 1).unsqueeze(0).to(self.device)
+        #image = image.permute(2, 0, 1).unsqueeze(0).to(self.device)
+        image = image.permute(2, 0, 1).unsqueeze(0)
+        image = image.to(self.device, dtype=self.model.vae.dtype)
         
         # Encode to latent space
         latent = self.model.vae.encode(image)['latent_dist'].mean

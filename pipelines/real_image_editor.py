@@ -197,7 +197,7 @@ class RealImageEditor:
                 'cross_replace_steps': {'default_': 0.8},
                 'self_replace_steps': 0.5,
                 'recommended_guidance_scale': 7.5,
-                'recommended_num_inference_steps': 50
+                'recommended_num_inference_steps': 30
             }
             
             if manual_params:
